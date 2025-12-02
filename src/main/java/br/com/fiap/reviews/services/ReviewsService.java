@@ -1,5 +1,6 @@
 package br.com.fiap.reviews.services;
 
+import br.com.fiap.reviews.AzureQueueClientProducer;
 import br.com.fiap.reviews.entities.dto.request.RequestReviewDto;
 import br.com.fiap.reviews.entities.dto.response.ResponseReviewDto;
 import br.com.fiap.reviews.exceptions.ReviewNotFoundException;
@@ -25,6 +26,8 @@ public class ReviewsService implements IReviewsService {
     StudentService studentService;
     @Inject
     CoursesService coursesService;
+    @Inject
+    NotificationService notificationService;
 
     @Override
     public ResponseReviewDto getReviewById(UUID id) {
@@ -61,12 +64,14 @@ public class ReviewsService implements IReviewsService {
 
         var review = ReviewsMapper.fromDtoToModel(payload, course, student);
 
-        if (review.isUrgent()){
-            // queue service to get notified
-            System.out.println("Notification to teacher");
-        }
-
         reviewsRepository.saveReview(review);
+
+        if (review.isUrgent()){
+            notificationService.sendBadReview(course.getTeacher().getEmail(), review);
+            System.out.println("Notification to teacher");
+        } else {
+            System.out.println("No notification necessary");
+        }
 
         return ReviewsMapper.fromModelToDto(review);
     }
