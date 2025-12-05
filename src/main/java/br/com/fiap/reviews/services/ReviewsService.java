@@ -66,12 +66,12 @@ public class ReviewsService implements IReviewsService {
 
         reviewsRepository.saveReview(review);
 
-//        if (review.isUrgent()){
-//            notificationService.sendBadReview(course.getTeacher().getEmail(), review);
-//            System.out.println("Notification to teacher");
-//        } else {
-//            System.out.println("No notification necessary");
-//        }
+        if (review.isUrgent()){
+            notificationService.sendBadReview(course.getTeacher().getEmail(), review);
+            System.out.println("Notification to teacher");
+        } else {
+            System.out.println("No notification necessary");
+        }
 
         return ReviewsMapper.fromModelToDto(review);
     }
