@@ -24,11 +24,11 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -Dquarkus.package.type=uber-jar
 
-      - name: Upload artifact for deployment
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*-runner.jar'
+          path: target/*-runner.jar
 
   deploy:
     runs-on: ubuntu-latest
@@ -38,10 +38,11 @@ jobs:
       contents: read
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: java-app
+          path: .
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -56,4 +57,4 @@ jobs:
         with:
           app-name: 'reviews-tech-challenge-4'
           slot-name: 'Production'
-          package: 'target/*-runner.jar'
+          package: '*.jar'
