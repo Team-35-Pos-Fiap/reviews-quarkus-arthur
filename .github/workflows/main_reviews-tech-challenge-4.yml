@@ -52,18 +52,6 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3D9C8F0024E5485D86CCE202EE3FCBE9 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_62E4856A308C4292BEE8D55311C82B7F }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_07EA1546709D497F813C5DA4FFC1C882 }}
-
-      - name: Set environment variables in Azure Web App
-        run: |
-          az webapp config appsettings set \
-            --resource-group MyResourceGroup \
-            --name reviews-tech-challenge-4 \
-            --settings \
-              QUARKUS_DATASOURCE_JDBC_URL="${{ secrets.DB_JDBC_URL }}" \
-              QUARKUS_DATASOURCE_USERNAME="${{ secrets.DB_USERNAME }}" \
-              QUARKUS_DATASOURCE_PASSWORD="${{ secrets.DB_PASSWORD }}" \
-              AZURE_STORAGE_QUEUE_CONNECTION_STRING="${{ secrets.STORAGE_QUEUE_CONNECTION_STRING }}" \
-              AZURE_STORAGE_QUEUE_NAME="${{ secrets.STORAGE_QUEUE_NAME }}"
         
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -74,3 +62,4 @@ jobs:
           package: '*.jar'
 
           
+
