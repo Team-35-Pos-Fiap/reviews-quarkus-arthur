@@ -15,20 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Java 21
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'microsoft'
 
-      - name: Build Quarkus JAR
-        run: mvn clean package -Dquarkus.package.type=uber-jar -Dquarkus.package.output-name=app
+      - name: Build with Maven
+        run: mvn clean package -Dquarkus.package.type=uber-jar
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: target/app-runner.jar
+          path: '${{ github.workspace }}/target/*-runner.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,8 +51,9 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_07EA1546709D497F813C5DA4FFC1C882 }}
 
       - name: Deploy to Azure Web App
+        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'reviews-tech-challenge-4'
           slot-name: 'Production'
-          package: target/app-runner.jar
+          package: 'target/*-runner.jar'
