@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "5cf82998-95a3-4fef-bca0-b44f65954050",
+		"name": "Reviews Quarkus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40793202"
+	},
+	"item": [
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "GET - list with all students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/students",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - student by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/students/6fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"students",
+								"6fa85f64-5717-4562-b3fc-2c963f66afa6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - create student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Arthur\",\n    \"last_name\": \"Martins\",\n    \"email\": \"arthur@test.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/students",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEL - delete student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/students/f5de980e-2c84-4290-b422-d23691fb0fc3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"students",
+								"f5de980e-2c84-4290-b422-d23691fb0fc3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH - update student",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Arthur\",\n    \"last_name\": \"Mezaonik\",\n    \"email\": \"arthur@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/students/f5de980e-2c84-4290-b422-d23691fb0fc3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"students",
+								"f5de980e-2c84-4290-b422-d23691fb0fc3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - add course to student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/students/f5de980e-2c84-4290-b422-d23691fb0fc3/courses/3fa85f64-5717-4562-b3fc-2c963f66af01",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"students",
+								"f5de980e-2c84-4290-b422-d23691fb0fc3",
+								"courses",
+								"3fa85f64-5717-4562-b3fc-2c963f66af01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEL - remove course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/students/f5de980e-2c84-4290-b422-d23691fb0fc3/courses/3fa85f64-5717-4562-b3fc-2c963f66af01",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"students",
+								"f5de980e-2c84-4290-b422-d23691fb0fc3",
+								"courses",
+								"3fa85f64-5717-4562-b3fc-2c963f66af01"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teachers",
+			"item": [
+				{
+					"name": "GET - list with all teachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/teachers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - teacher by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/teachers/550e8400-e29b-41d4-a716-446655440002",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"teachers",
+								"550e8400-e29b-41d4-a716-446655440002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - create teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Arthur\",\n    \"last_name\": \"Martins\",\n    \"email\": \"arthur@test.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/teachers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH - update teacher",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Arthur\",\n    \"last_name\": \"Mezaonik\",\n    \"email\": \"arthur@test.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/teachers/1ce74b10-55c2-4a48-9a58-6d7c1204b3f3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"teachers",
+								"1ce74b10-55c2-4a48-9a58-6d7c1204b3f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEL - delete teacher",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/teachers/9608eb08-b8de-42a2-a2e4-f934d4705338",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"teachers",
+								"9608eb08-b8de-42a2-a2e4-f934d4705338"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "GET - all courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - course by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/courses/3fa85f64-5717-4562-b3fc-2c963f66af00",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"3fa85f64-5717-4562-b3fc-2c963f66af00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - create course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Quarkus 101\",\n    \"teacherId\": \"550e8400-e29b-41d4-a716-446655440003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH - update course",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Quarkus 101\",\n    \"teacherId\": \"550e8400-e29b-41d4-a716-446655440003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/courses/ac4ab13f-bb46-4f93-b8f5-4b376e7cad97",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"ac4ab13f-bb46-4f93-b8f5-4b376e7cad97"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEL - delete course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/courses/3fa85f64-5717-4562-b3fc-2c963f66af00",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"3fa85f64-5717-4562-b3fc-2c963f66af00"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "GET - all reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - review by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/1c6e2a7c-91f8-4eb3-9c3f-2b3d9c6e1a03",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"1c6e2a7c-91f8-4eb3-9c3f-2b3d9c6e1a03"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - review by course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/course/3fa85f64-5717-4562-b3fc-2c963f66af00",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"course",
+								"3fa85f64-5717-4562-b3fc-2c963f66af00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - create review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"courseId\":\"3fa85f64-5717-4562-b3fc-2c963f66af03\",\n    \"studentId\":\"6fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"comment\": \"Not a bad course.\",\n    \"rating\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		}
+	]
+}
